@@ -1,0 +1,12 @@
+Visualforce Gauge Component
+
+URL: http://www.cloudspokes.com/challenge_detail.html?contestID=222
+Challenge end date: Tue Jul 05 04:00:00 GMT 2011
+
+Description
+===========
+<p>Create a Visualforce component that can be dropped onto a Visualforce page and quickly configured to display a gauge component. The winning factors for this challenge include ease of configuration and “eye-candy”. We are looking for a very visually appealing gauge (the cooler looking the better!); unlike the one below. </p>
+
+Requirements
+============
+<p>Create a Visualforce component that displays a gauge using a popular JavaScript library or Flex component. The Visualforce component will have parameters that determines factors such as start value, end value, value to display, tick interval, colors, etc. There may be more parameters needed than these so feel free add as many as applicable. The component must be able to display values up to 2 decimal points and you should be able to include multiple gauges on the same Visualforce page. All runtime assets for the component will need to be hosted on salesforce.com, preferably as static resources.</p> <p>Must have adequate test coverage (75%+) where applicable.</p>

@@ -1,0 +1,43 @@
+<apex:component >
+    <apex:includeScript value="{!URLFOR($Resource.vf_gauge, 'jquery-1.4.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.vf_gauge, 'jquery.speedometer.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.vf_gauge, 'jquery.jqcanvas-modified.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.vf_gauge, 'excanvas-modified.js')}" />
+    
+    <apex:attribute name="minVal" type="string" description="the minimum value" required="true"/>
+    <apex:attribute name="maxVal" type="string" description="the maximum value" required="true" />
+    <apex:attribute name="currentVal" type="string" description="the current value" required="true" />
+    <apex:attribute name="backgroundColor" type="string" description="the color of the numeric readout box" default="black"/>
+    <apex:attribute name="fontColor" type="string" description="the color of the font in the readout box" default="white"/>
+    <apex:attribute name="title" type="string" description="A title for this gauge" default="My awesome gauge"/>
+    <apex:attribute name="link" type="string" description="A url to go to when gauge is clicked" default="#"/>
+    <apex:attribute name="animate" type="boolean" description="animate the line" default="true"/>
+    
+    <script>
+            var minVal = {!minVal};
+            var maxVal = {!maxVal};
+            var currentVal = {!currentVal};
+               
+            var animateGauge = {!animate};
+            var displayBackgroundColor = '{!backgroundColor}';
+            var displayFontColor = '{!fontColor}';
+            var gaugeImage = '{!URLFOR($Resource.vf_gauge, 'img/background.jpg')}';
+            var gaugeImageBroken = '{!URLFOR($Resource.vf_gauge, 'img/background-broken.jpg')}';
+         
+        $(function(){
+            $('#test').speedometer();
+            $('#titleSpan').text('{!title}');
+        }); 
+    </script>
+    <div id="container" style="width:210px;">
+    <center><span id="titleSpan" align="center"></span></center>
+    <div id="test" onclick="location.href='{!link}';" style="cursor:pointer;"></div>
+        <div style="position:absolute; top:120px; left:30px; width:80px; font-size:8; font-weight:bold;">
+            {!minVal}
+        </div>
+
+        <div style="position:absolute; top:120px; left:116px; width:80px; font-size:8; font-weight:bold; text-align:right;">
+            {!maxVal}
+        </div>        
+    </div>
+</apex:component>
